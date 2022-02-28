@@ -1,5 +1,28 @@
+//i
+  //array of numbers
+  //k target value for pairs
+//o
+ //array of arrays
+   //each array adds up to the target number
+//e
+  //array can be empty
+  //array can have one value
+//c
+  //no duplicate number sums
 function distinctPairSum(arr, k) {
-  // type your code here
+  const pairs = {}
+
+  for (let i = 0; i < arr.length; i++) {
+    const current = arr[i];
+    const next = arr[i + 1];
+    const sum = current + next;
+
+    if (!pairs[next] && !pairs[current] && sum === k) {
+      pairs[next] = [next, current];
+    }
+  }
+
+  return Object.values(pairs)
 }
 
 if (require.main === module) {
